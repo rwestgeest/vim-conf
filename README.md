@@ -1,4 +1,4 @@
-# Vim configuration of Shingara
+# Vim configuration of rwestgeest based on Shingara's and my original janus setup
 
 This vim configuration use [vundle
 project](https://github.com/gmarik/vundle).
@@ -8,13 +8,13 @@ project](https://github.com/gmarik/vundle).
 1. Clone this project
 
 ```
-$ git clone git://github.com/shingara/vim-conf.git
+$ git clone git://github.com/rwestgeest/vim-conf.git .vim-conf
 ```
 
 2. Link the vimrc in vim-conf clone to .vimrc
 
 ```
-$ ln -s ~/vim-conf/vimrc ~/.vimrc
+$ ln -s ~/.vim-conf/vimrc ~/.vimrc
 ```
 
 3. Install Vundle
