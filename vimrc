@@ -32,7 +32,7 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'vim-scripts/vimwiki'
 Bundle 'vim-scripts/SuperTab'
-
+Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/CSApprox'
 Bundle "nanotech/jellybeans.vim"
 Bundle 'altercation/vim-colors-solarized'
