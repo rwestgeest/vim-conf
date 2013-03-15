@@ -30,6 +30,8 @@ Bundle 'tpope/vim-commentary'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'mattn/webapi-vim'
+Bundle 'vim-scripts/vimwiki'
+Bundle 'vim-scripts/SuperTab'
 
 Bundle 'vim-scripts/CSApprox'
 Bundle "nanotech/jellybeans.vim"
@@ -145,7 +147,7 @@ set noswapfile
 set noar
 
 " Delete all whitespace in end of line
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
 
 " Autocomplete Fabricator gem
 autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
@@ -153,6 +155,9 @@ autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.r
 " Autocomplete Fabricator gem
 autocmd User Rails Rnavcommand decorator app/decorators -suffix=_decorator.rb -default=model()
 
+" SuperTab completion
+let g:SuperTabMappingForward='<tab>'
+let g:SuperTabMappingBackward='<s-tab>'
 
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
@@ -175,4 +180,10 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
