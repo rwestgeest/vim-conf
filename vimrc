@@ -6,38 +6,40 @@ let mapleader = "\\"
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-haml'
-Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'msanders/snipmate.vim'
-Bundle 'tpope/vim-markdown'
-Bundle 'godlygeek/tabular'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'vim-scripts/searchfold.vim'
-Bundle 'tpope/vim-endwise'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'scrooloose/syntastic'
-Bundle 'mattn/gist-vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'juvenn/mustache.vim'
-Bundle 'tpope/vim-commentary'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'vim-scripts/vimwiki'
-Bundle 'vim-scripts/SuperTab'
-Bundle 'mileszs/ack.vim'
-Bundle 'vim-scripts/CSApprox'
-Bundle "nanotech/jellybeans.vim"
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'railscasts'
-Bundle 'endel/vim-github-colorscheme'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-haml'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'msanders/snipmate.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-scripts/searchfold.vim'
+Plugin 'tpope/vim-endwise'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'scrooloose/syntastic'
+Plugin 'mattn/gist-vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'tpope/vim-commentary'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'mattn/webapi-vim'
+Plugin 'vim-scripts/vimwiki'
+Plugin 'vim-scripts/SuperTab'
+Plugin 'mileszs/ack.vim'
+Plugin 'vim-scripts/CSApprox'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-scripts/Align'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'vim-scripts/xptemplate'
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 set number
 syntax on
@@ -70,7 +72,7 @@ set laststatus=2
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
-
+map <Leader>s :NERDTreeFind<CR>
 
 " Remember last location in file
 if has("autocmd")
@@ -122,8 +124,7 @@ let g:gist_open_browser_after_post = 1
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
-
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 " Use modeline overrides
 set modeline
@@ -159,7 +160,6 @@ autocmd User Rails Rnavcommand decorator app/decorators -suffix=_decorator.rb -d
 let g:SuperTabMappingForward='<tab>'
 let g:SuperTabMappingBackward='<s-tab>'
 
-let g:Powerline_symbols = 'fancy'
 set t_Co=256
 let g:solarized_termcolors=256
 let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
@@ -173,12 +173,15 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 
 "spell check when writing commit logs
 autocmd filetype svn,*commit* set spell
-
+if has("unix")
+    set runtimepath+=~/.vim/xpt-personal
+endif
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|target$',
   \ 'file': '\.exe$\|\.so$\|\.dll$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
 
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
@@ -186,4 +189,4 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
-
+set mouse=a
