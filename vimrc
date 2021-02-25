@@ -8,20 +8,15 @@ call vundle#rc()
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-haml'
-Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
+Plugin 'majutsushi/tagbar'
 Plugin 'msanders/snipmate.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/searchfold.vim'
 Plugin 'tpope/vim-endwise'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattn/gist-vim'
 Plugin 'kien/ctrlp.vim'
@@ -30,17 +25,13 @@ Plugin 'tpope/vim-commentary'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'mattn/webapi-vim'
 Plugin 'vim-scripts/vimwiki'
-Plugin 'vim-scripts/SuperTab'
 Plugin 'mileszs/ack.vim'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/Align'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'vim-scripts/xptemplate'
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
+Plugin 'leafgarland/typescript-vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 set number
 syntax on
 set autoread " Automatically reload changes if detected
@@ -150,12 +141,6 @@ set noar
 " Delete all whitespace in end of line
 " autocmd BufWritePre * :%s/\s\+$//e
 
-" Autocomplete Fabricator gem
-autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
-
-" Autocomplete Fabricator gem
-autocmd User Rails Rnavcommand decorator app/decorators -suffix=_decorator.rb -default=model()
-
 " SuperTab completion
 let g:SuperTabMappingForward='<tab>'
 let g:SuperTabMappingBackward='<s-tab>'
@@ -193,3 +178,6 @@ nnoremap <silent> <Esc><Esc> :let @/=""<CR>
 nnoremap <C-h> :noh <CR>
 nnoremap <leader>c :nohl<CR>
 set mouse=a
+
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
